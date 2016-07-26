@@ -1,0 +1,21 @@
+<ion-view>
+  <ion-nav-title>
+    {{categoria.nombre}}
+  </ion-nav-title>
+  <ion-content>
+    <ion-list>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Buscar" ng-model="buscar">
+        </label>
+      </div>
+      <ion-item class="item item-avatar" ng-repeat="local in locales | filter:filtrarPorCategoria | buscarLocal:buscar:'nombre,direccion,telefonos'" href="#/app/locales/{{local.$id}}">
+        <img ng-src="">
+        <p><i class="icon ion-star" ng-repeat="indice in rango(local.valoracion) track by $index"></i></p>
+        <span class="badge badge-assertive"><i class="icon" ng-class="{'ion-android-favorite': arrFavoritos.$getRecord(local.$id), 'ion-android-favorite-outline': !arrFavoritos.$getRecord(local.$id)}"></i></span>
+        <ion-option-button class="button-assertive icon" ng-class="{'ion-android-favorite': arrFavoritos.$getRecord(local.$id), 'ion-android-favorite-outline': !arrFavoritos.$getRecord(local.$id)}" ng-click="modificarFavorito(local.$id)" ng-if=$root.usuarioFirebase></ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

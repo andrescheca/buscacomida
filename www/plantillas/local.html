@@ -1,0 +1,31 @@
+<ion-view>
+  <ion-nav-title>
+    {{local.nombre}}
+  </ion-nav-title>
+  <ion-content>
+    <ion-list>
+      <div class="row">
+        <div class="col-25 item-avatar"><img ng-src="" /></div>
+        <div class="col-75">
+          <p>Dirección: </p>
+          <p>Teléfonos: </p>
+          <p>Valoración: 
+            <i class="icon ion-star" ng-repeat="indice in rango(local.valoracion) track by $index"></i>
+          </p>
+          <p>
+            <button class="button icon-left button-clear button-assertive" ng-click="modificarFavorito(local.$id)">{{local.favoritos}} <i class="icon" ng-class="{'ion-android-favorite': arrFavoritos.$getRecord(local.$id), 'ion-android-favorite-outline': !arrFavoritos.$getRecord(local.$id)}"></i></button>
+            <button class="button icon-left button-clear button-dark" ng-click="abrirPanelComentarios()">{{local.comentarios.length || 0}} <i class="icon ion-chatbubble"></i></button>
+          </p>
+        </div>
+      </div>
+
+      <div class="list card" ng-repeat="producto in local.productos" >
+        <div class="item">
+        </div>
+        <div class="item item-body">
+          <img class="full-image" ng-src="" />
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

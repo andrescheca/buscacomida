@@ -1,0 +1,39 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Iniciar sesión</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="cerrarPanelInicioSesion()">Cerrar</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <form ng-submit="iniciarSesion($event)">
+        <label class="item item-input">
+          <span class="input-label">Correo</span>
+          <input type="text" ng-model="">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Contraseña</span>
+          <input type="password" ng-model="">
+        </label>
+        <label class="item item-input" ng-show="">
+          <span class="input-label">Repetir contraseña</span>
+          <input type="password" ng-model="">
+        </label>
+        <label class="item item-assertive" ng-if="">
+          {{error}}
+        </label>
+        <a class="item" ng-click="registrarUsuario($event)" ng-hide="">Registrar usuario</a>
+        <label class="item" ng-if="">
+          <input class="button button-block button-balanced" type="submit" value="Iniciar sesión" />
+        </label>
+        <label class="item" ng-if="">
+          <button class="button button-block button-calm" ng-click="iniciarSesionTwitter($event)"><i class="icon ion-social-twitter"> Iniciar sesión con twitter</i></button>
+        </label>
+        <label class="item" ng-if="">
+          <button class="button button-block button-balanced" ng-click="enviarRegistro($event)">Enviar registro</button>
+        </label>
+      </form>
+    </div>
+  </ion-content>
+</ion-modal-view>

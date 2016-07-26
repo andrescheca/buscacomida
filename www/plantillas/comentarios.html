@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Comentarios</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="cerrarPanelComentarios()">Cerrar</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <label class="item item-avatar" ng-repeat="">
+        <img ng-src="">
+        <h2></h2>
+        <p></p>
+        <small></small>
+      </label>
+      <form ng-submit="enviarComentario()">
+        <label class="item item-input">
+          <span class="input-label">Comentario</span>
+          <input type="text" ng-model="" required="required">
+        </label>
+        <label class="item">
+          <button class="button button-block button-balanced" type="submit">Comentar</button>
+        </label>
+      </form>
+    </div>
+  </ion-content>
+</ion-modal-view>

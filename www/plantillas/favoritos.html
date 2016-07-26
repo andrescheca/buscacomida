@@ -1,0 +1,18 @@
+<ion-view view-title="Favoritos" cache-view="false">
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline" ng-click="cambiarEstadoEliminar()" ng-if=$root.usuarioFirebase></button>
+    </div>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list show-delete="mostrarEliminar">
+      <ion-item ng-repeat="local in locales" href="#/app/locales/{{local.$id}}" class="item-thumbnail-left" on-swipe-left="eliminarFavorito(local)">
+        <img ng-src="">
+        <h2></h2>
+        <p></p>
+        <p><i class="icon ion-star" ng-repeat="indice in rango(local.valoracion) track by $index"></i></p>
+        <ion-delete-button class="ion-minus-circled" ng-click="eliminarFavorito(local)" ng-if=$root.usuarioFirebase></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
