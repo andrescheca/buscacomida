@@ -4,11 +4,11 @@
       <div class="list list-inset">
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Buscar">
+          <input type="text" placeholder="Buscar" ng-model="buscar">
         </label>
       </div>
-      <ion-item ng-repeat="categoria in categorias" href="#/app/categorias/{{categoria.$id}}">
-        
+      <ion-item ng-repeat="categoria in categorias | filter:buscar:categoria.nombre" href="#/app/categorias/{{categoria.$id}}">
+        {{categoria.nombre}}
       </ion-item>
     </ion-list>
   </ion-content>

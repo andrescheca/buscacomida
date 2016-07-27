@@ -3,7 +3,7 @@ angular.module('buscacomida.servicios', [])
 .service('serFavorito', ['$rootScope', '$firebaseObject', '$ionicListDelegate', '$ionicPopup', '$cordovaVibration', '$ionicPlatform', '$cordovaLocalNotification', '$cordovaToast', 'fabFavoritos', function ($rootScope, $firebaseObject, $ionicListDelegate, $ionicPopup, $cordovaVibration, $ionicPlatform, $cordovaLocalNotification, $cordovaToast, fabFavoritos) {
   this.modificar = function (localId, local, arrFavoritos, objFavoritos) {
   	if ($rootScope.usuarioFirebase) {
-      // $ionicListDelegate.closeOptionButtons();
+      $ionicListDelegate.closeOptionButtons();
       if (arrFavoritos.$getRecord(localId)) {
         console.log('Eliminar');
         var ventanaConfirmar = $ionicPopup.confirm({

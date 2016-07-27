@@ -10,27 +10,27 @@
       <form ng-submit="iniciarSesion($event)">
         <label class="item item-input">
           <span class="input-label">Correo</span>
-          <input type="text" ng-model="">
+          <input type="text" ng-model="dataInicioSesion.correo">
         </label>
         <label class="item item-input">
           <span class="input-label">Contraseña</span>
-          <input type="password" ng-model="">
+          <input type="password" ng-model="dataInicioSesion.contrasena">
         </label>
-        <label class="item item-input" ng-show="">
+        <label class="item item-input" ng-show="registrar">
           <span class="input-label">Repetir contraseña</span>
-          <input type="password" ng-model="">
+          <input type="password" ng-model="dataInicioSesion.contrasenaNueva">
         </label>
-        <label class="item item-assertive" ng-if="">
+        <label class="item item-assertive" ng-if="error">
           {{error}}
         </label>
-        <a class="item" ng-click="registrarUsuario($event)" ng-hide="">Registrar usuario</a>
-        <label class="item" ng-if="">
+        <a class="item" ng-click="registrarUsuario($event)" ng-hide="registrar">Registrar usuario</a>
+        <label class="item" ng-if="!registrar">
           <input class="button button-block button-balanced" type="submit" value="Iniciar sesión" />
         </label>
-        <label class="item" ng-if="">
+        <label class="item" ng-if="!registrar">
           <button class="button button-block button-calm" ng-click="iniciarSesionTwitter($event)"><i class="icon ion-social-twitter"> Iniciar sesión con twitter</i></button>
         </label>
-        <label class="item" ng-if="">
+        <label class="item" ng-if="registrar">
           <button class="button button-block button-balanced" ng-click="enviarRegistro($event)">Enviar registro</button>
         </label>
       </form>

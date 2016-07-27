@@ -34,6 +34,16 @@ angular.module('buscacomida', ['ionic',  'ngCordova', 'ngCordovaOauth', 'firebas
     controller: 'AppCtrl'
   })
 
+  .state('app.favoritos', {
+      url: '/favoritos',
+      views: {
+        'contenidoMenu': {
+          templateUrl: 'plantillas/favoritos.html',
+          controller: 'FavoritosCtrl'
+        }
+      }
+    })
+
   .state('app.categorias', {
     url: '/categorias',
     views: {
@@ -54,6 +64,16 @@ angular.module('buscacomida', ['ionic',  'ngCordova', 'ngCordovaOauth', 'firebas
     }
   })
 
+
+  .state('app.local', {
+    url: '/locales/:localId',
+    views: {
+      'contenidoMenu': {
+        templateUrl: 'plantillas/local.html',
+        controller: 'LocalCtrl'
+      }
+    }
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/categorias');
 });

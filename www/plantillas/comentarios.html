@@ -7,16 +7,17 @@
   </ion-header-bar>
   <ion-content>
     <div class="list">
-      <label class="item item-avatar" ng-repeat="">
-        <img ng-src="">
-        <h2></h2>
+      <label class="item item-avatar" ng-repeat="comentario in local.comentarios">
+        <img ng-src="{{obtenerUsuario(comentario.usuario).imagen}}">
+        <h2>{{obtenerUsuario(comentario.usuario).nombre}}</h2>
+        <!-- TODO: Mostrar el mensaje del comentario -->
         <p></p>
-        <small></small>
+        <small>{{ comentario.fecha | date:'medium' }}</small>
       </label>
-      <form ng-submit="enviarComentario()">
+      <form ng-submit="enviarComentario()" ng-if="$root.usuarioFirebase">
         <label class="item item-input">
           <span class="input-label">Comentario</span>
-          <input type="text" ng-model="" required="required">
+          <input type="text" ng-model="comentario.mensaje" required="required">
         </label>
         <label class="item">
           <button class="button button-block button-balanced" type="submit">Comentar</button>
