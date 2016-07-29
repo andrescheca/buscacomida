@@ -10,8 +10,7 @@
       <label class="item item-avatar" ng-repeat="comentario in local.comentarios">
         <img ng-src="{{obtenerUsuario(comentario.usuario).imagen}}">
         <h2>{{obtenerUsuario(comentario.usuario).nombre}}</h2>
-        <!-- TODO: Mostrar el mensaje del comentario -->
-        <p></p>
+        <p>{{comentario.mensaje}}</p>
         <small>{{ comentario.fecha | date:'medium' }}</small>
       </label>
       <form ng-submit="enviarComentario()" ng-if="$root.usuarioFirebase">

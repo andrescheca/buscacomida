@@ -7,7 +7,7 @@
           <input type="text" placeholder="Buscar" ng-model="buscar">
         </label>
       </div>
-      <ion-item ng-repeat="categoria in categorias | filter:buscar:categoria.nombre" href="#/app/categorias/{{categoria.$id}}">
+      <ion-item ng-repeat="categoria in categorias | filter:buscar" href="#/app/categorias/{{categoria.$id}}">
         {{categoria.nombre}}
       </ion-item>
     </ion-list>

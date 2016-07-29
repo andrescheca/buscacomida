@@ -55,7 +55,6 @@ angular.module('buscacomida.controladores', [])
     evento.preventDefault();
     if (window.cordova) {
       // En dispositivos
-      // TODO: Obtener credenciales de twitter
       $cordovaOauth.twitter('rHbB6ifRuVkH3LXzw3Bv68rZn', 'bW9a4Q9QwFGTFBkLMBGq8kKlwRMTT0sf5N9Vqp5DthtR50F2aJ').then(function (credenciales) {
         var proveedor = firebase.auth.TwitterAuthProvider.credential(credenciales.oauth_token, credenciales.oauth_token_secret);
         $scope.autenticacion.$signInWithCredential(proveedor).then(function (usuarioFirebase) {
@@ -205,7 +204,17 @@ angular.module('buscacomida.controladores', [])
           usuario: $rootScope.usuarioFirebase.uid
       };
 
-      // TODO: Ingreso de comentarios
+      if (local.comentarios) {
+        local.comentarios.push(comentario);
+      } else {
+        local.comentarios = [comentario];
+      }
+      local.$save().then(function () {
+        // limpiar variable de comentario
+        $scope.comentario = {};
+      }, function (error) {
+        console.log('Error', error);
+      });
     }
   }
 

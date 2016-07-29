@@ -5,11 +5,10 @@
   <ion-content>
     <ion-list>
       <div class="row">
-        <!-- TODO: Mostrar información del local -->
-        <div class="col-25 item-avatar"><img ng-src="" /></div>
+        <div class="col-25 item-avatar"><img ng-src="{{local.logo}}" /></div>
         <div class="col-75">
-          <p>Dirección: </p>
-          <p>Teléfonos: </p>
+          <p>Dirección: {{local.direccion}}</p>
+          <p>Teléfonos: {{local.telefonos}}</p>
           <p>Valoración: 
             <i class="icon ion-star" ng-repeat="indice in rango(local.valoracion) track by $index"></i>
           </p>
@@ -22,13 +21,11 @@
 
       <div class="list card" ng-repeat="producto in local.productos" >
         <div class="item">
-          <!-- TODO: Mostrar nombre del producto -->
-          <p></p>
+          <p>{{producto.nombre}}</p>
         </div>
         <div class="item item-body">
           <img class="full-image" ng-src="{{producto.imagen}}" />
-          <!-- TODO: Mostrar precio del producto -->
-          <p></p>
+          <p>{{producto.precio}}</p>
           <p>
             {{producto.descripcion}}
           </p>

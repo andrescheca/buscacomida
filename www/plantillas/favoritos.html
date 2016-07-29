@@ -8,8 +8,7 @@
     <ion-list show-delete="mostrarEliminar">
       <ion-item ng-repeat="local in locales | filter:filtrarPorCategoria " href="#/app/locales/{{local.$id}}" class="item-thumbnail-left" on-swipe-left="eliminarFavorito(local)">
         <img ng-src="{{local.logo}}">
-        <!-- TODO: Mostrar el nombre de local favorito -->
-        <h2></h2>
+        <h2>{{local.nombre}}</h2>
         <p>{{local.direccion}}</p>
         <p><i class="icon ion-star" ng-repeat="indice in rango(local.valoracion) track by $index"></i></p>
         <ion-delete-button class="ion-minus-circled" ng-click="eliminarFavorito(local)" ng-if=$root.usuarioFirebase></ion-delete-button>
