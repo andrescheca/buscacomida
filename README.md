@@ -1,4 +1,5 @@
 # Proyecto base de ejemplo de ionic y firebase
+Proyecto utilizado de ejemplo para el curso de Desarrollo de aplicaciones híbridas.
 
 ## FAQ
 ### ¿Qué es Ionic?
@@ -90,6 +91,7 @@ ionic platform add android
 ```
 
 ### Modificar el archivo package.json e instalar bower
+El comando sudo solo es para máquinas en Linux o OSX
 ```bash
 sudo npm install -g bower
 ```
